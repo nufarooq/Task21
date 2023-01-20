@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="row">
+    <br />
+    @using (Html.BeginForm("GetText", "Home", FormMethod.Post))
+    {
+        for (int i = 0; i < ViewBag.Flowerlst.Count; i++)
+        {
+            <input type="radio" id="rdFlower+@i"  name="rdFlower" value="@ViewBag.Flowerlst[i]" />  <label for="rdFlower+@i">@ViewBag.Flowerlst[i]</label>
+            if (i % 2 != 0)
+            {
+                <br />
+            }
+        }
+        <br />
+        <input type="submit" name="submit" />
+        <br />
+        @ViewBag.Output
+    }
+</div>
